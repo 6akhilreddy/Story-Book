@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'storybook/style.css' %}" />
+	<title>StoryBook</title>
+</head>
+<body>
+	<div class="header">
+	  <h2>Story Book</h2>
+	  <p>Read and Write Interesting Stories Here...!!</p>
+	</div>
+
+	<ul>
+	  <li><a class="active" href="{% url 'index' %}">Read</a></li>
+	  <li><a href="{%url 'addstory' %}">Write</a></li>
+	</ul>
+
+	<h3>Number of Readers :{{ visits }}</h2>
+	
+	<h2>{{content.title}}</h2>
+	<div class="card" >
+		<p>{{content.description}}</p>
+	</div>
+
+</body>
+</html>		

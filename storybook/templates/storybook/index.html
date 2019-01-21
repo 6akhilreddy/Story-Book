@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'storybook/style.css' %}" />
+</head>
+<body> 
+
+<div class="header">
+  <h2>Story Book</h2>
+  <p>Read and Write Interesting Stories Here...!!</p>
+</div>
+
+<ul>
+  <li><a class="active" href="{% url 'index' %}">Read</a></li>
+  <li><a href="{% url 'addstory' %}">Write</a></li>
+</ul>
+
+<h3>Read the Latest Stories..!!</h3>
+<div class="row">
+  {% for story in content %}
+  {% if forloop.counter0|divisibleby:4 %}
+  </div>
+  {%for i in "x" %}
+  <div class="row">
+  &nbsp;
+  </div>
+  {%endfor%}
+
+  {%endif%}
+  <div class="column">
+    <div class="card">
+      <h3>{{ story.title }}</h3>
+      <p>{{ story.brief }}</p>
+      <p><a href="{% url 'readstory' story.id %}">Read Story</a></p>
+    </div>
+  </div>
+  {%endfor %}
+
+
+
+
+</body>
+</html>

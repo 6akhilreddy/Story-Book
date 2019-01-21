@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'storybook/style.css' %}">
+	<title>Story Book</title>
+</head>
+<body>
+	<div class="header">
+	  <h2>Story Book</h2>
+	  <p>Read and Write Interesting Stories Here...!!</p>
+	</div>
+
+	<ul>
+	  <li><a  href="{% url 'index' %}">Read</a></li>
+	  <li><a class="active" href="{% url 'addstory' %}">Write</a></li>
+	</ul>
+
+	<div class="container">
+  <form method="POST" action="{% url 'addstory' %}">
+  	{% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Story Title</label>
+      </div>
+      <div class="col-75">
+      	{{form.title}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Story Description</label>
+      </div>
+      <div class="col-75">
+      	{{form.brief}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Story</label>
+      </div>
+      <div class="col-75">
+      	{{form.description}}
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+	
+</body>
+</html>
+
+
+
